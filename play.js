@@ -1,26 +1,10 @@
 const net = require("net");
 const connect = require("./client");
+const setupInput = require("./input");
 
 const snakeConn = connect("135.23.222.131",50542);
 // interpret incoming data as text
 snakeConn.setEncoding("utf8");
-
-
-const handleUserInput = function (key) {
-  // your code here
-  if (key === '\u0003') {
-    process.exit();
-  }
-};
-
-const setupInput = function () {
-  const stdin = process.stdin;
-  stdin.setRawMode(true);
-  stdin.setEncoding("utf8");
-  stdin.resume();
-  stdin.on('data',handleUserInput);
-  return stdin;
-};
 
 setupInput();
 
@@ -42,8 +26,6 @@ snakeConn.on("connect", () =>{
   }, 300);
   
 });
-
-
 
 snakeConn.on('data', (data) => {
   console.log(data);
