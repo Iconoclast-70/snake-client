@@ -12,6 +12,8 @@ const handleUserInput = function(key) {
     connection.write(down); 
   } else if (key === 'd') {
     connection.write(right)
+  } if (key === 'm' ) {
+    connection.write("Say: HI!");
   } else if (key === '\u0003') {
     process.exit();
   }
@@ -25,7 +27,6 @@ const setupInput = function(snakeConn) {
   stdin.setEncoding("utf8");
   stdin.resume();
   stdin.on('data',handleUserInput);
-  connection.write("Say: HI");
   return stdin;
 };
 
