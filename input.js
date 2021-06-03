@@ -1,31 +1,33 @@
+const { up, down, left, right } = require("./constants");
+
 let connection;
 
 const handleUserInput = function(key) {
 
   if (key === '\u0077') {
     const moveUp = setInterval(() => {
-      connection.write("Move: up");
+      connection.write(up);
     }, 50);
     setTimeout(() => {
       clearInterval(moveUp);
     }, 100);
   } else if (key === '\u0061') {
     const moveUp = setInterval(() => {
-      connection.write("Move: left");
+      connection.write(left);
     }, 50);
     setTimeout(() => {
       clearInterval(moveUp);
     }, 100);
   } else if (key === '\u0073') {
     const moveUp = setInterval(() => {
-      connection.write("Move: down");
+      connection.write(down);
     }, 50);
     setTimeout(() => {
       clearInterval(moveUp);
     }, 100);
   } else if (key === '\u0064') {
     const moveUp = setInterval(() => {
-      connection.write("Move: right");
+      connection.write(right);
     }, 50);
     setTimeout(() => {
       clearInterval(moveUp);
