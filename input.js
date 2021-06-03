@@ -4,34 +4,14 @@ let connection;
 
 const handleUserInput = function(key) {
 
-  if (key === '\u0077') {
-    const moveUp = setInterval(() => {
-      connection.write(up);
-    }, 50);
-    setTimeout(() => {
-      clearInterval(moveUp);
-    }, 100);
-  } else if (key === '\u0061') {
-    const moveUp = setInterval(() => {
-      connection.write(left);
-    }, 50);
-    setTimeout(() => {
-      clearInterval(moveUp);
-    }, 100);
-  } else if (key === '\u0073') {
-    const moveUp = setInterval(() => {
-      connection.write(down);
-    }, 50);
-    setTimeout(() => {
-      clearInterval(moveUp);
-    }, 100);
-  } else if (key === '\u0064') {
-    const moveUp = setInterval(() => {
-      connection.write(right);
-    }, 50);
-    setTimeout(() => {
-      clearInterval(moveUp);
-    }, 100);
+  if (key === 'w') {
+    connection.write(up);
+  } else if (key === 'a') {
+    connection.write(left);
+  } else if (key === 's') {
+    connection.write(down); 
+  } else if (key === 'd') {
+    connection.write(right)
   } else if (key === '\u0003') {
     process.exit();
   }
@@ -45,6 +25,7 @@ const setupInput = function(snakeConn) {
   stdin.setEncoding("utf8");
   stdin.resume();
   stdin.on('data',handleUserInput);
+  connection.write("Say: HI");
   return stdin;
 };
 

@@ -6,14 +6,11 @@ const snakeConn = connect();
 // interpret incoming data as text
 snakeConn.setEncoding("utf8");
 
-//setupInput(snakeConn);
-
 snakeConn.on("connect", () =>{
 
   //snakeConn.write("connected");
   console.log("connected to snake server");
   snakeConn.write("Name: BSG");
-  snakeConn.write("Say: HI");
   setupInput(snakeConn);
   
 });
